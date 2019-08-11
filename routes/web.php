@@ -12,10 +12,11 @@ Route::get('/usuarios/{id}',function($id){
 Route::get('usuarios/nombre',function(){
 return "usuario crear";
 });
-Route::get('/usuarios/{nombre}/{nickname?}',function($nombre,$nickname=null){
+Route::get('/saludo/{nombre}/{nickname?}',function($nombre,$nickname=null){
+    $nombre = ucfirst($nombre);
 if($nickname){
 return "eres el usuario $nombre y tu apodo es: $nickname";
 }else{
-return "eres el usuario $nombre y no tienes nickname";
+return "eres el usuario $nombre";
 }
 });
