@@ -8,13 +8,24 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ModuleUserTest extends TestCase
 {
-    /**
-     * @return void
-     */
-    public function testExample()
+    /** @test*/
+    public function list_user()
     {
-        $this->get('usuarios')
+        $this->get('/usuarios')
         ->assertStatus(200)
         ->assertSee('usuarios');
     }
+    public function list_user_detail()
+    {
+        $this->get('/usuarios/5')
+        ->assertStatus(200)
+        ->assertSee('eres un usuario y tu id es:5');
+    }
+    public function list_user_nombre()
+    {
+        $this->get('/usuarios/nombre')
+        ->assertStatus(200)
+        ->assertSee('usuario crear');
+    }
+
 }
