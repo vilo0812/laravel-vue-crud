@@ -3,15 +3,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/usuarios', function(){
- return "usuarios";
-});
-Route::get('/usuarios/{id}',function($id){
-    return "eres un usuario y tu id es:$id";
-})->where('id','[0-9]+');
-Route::get('usuarios/nombre',function(){
-return "usuario crear";
-});
+Route::get('/usuarios','UserController@index');
+Route::get('/usuarios/{id}','UserController@show')
+->where('id','[0-9]+');
+Route::get('usuarios/nombre','UserController@create');
 Route::get('/saludo/{nombre}/{nickname?}',function($nombre,$nickname=null){
     $nombre = ucfirst($nombre);
 if($nickname){

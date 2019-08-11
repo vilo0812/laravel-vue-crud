@@ -15,14 +15,18 @@ class ModuleUserTest extends TestCase
         ->assertStatus(200)
         ->assertSee('usuarios');
     }
+    /** @test*/
     public function list_user_detail()
     {
         $this->get('/usuarios/5')
         ->assertStatus(200)
         ->assertSee('eres un usuario y tu id es:5');
     }
+    /** @test*/
     public function list_user_nombre()
     {
+        //arreglar este metodo
+        //$this->withoutExcecptionHandling();
         $this->get('/usuarios/nombre')
         ->assertStatus(200)
         ->assertSee('usuario crear');
