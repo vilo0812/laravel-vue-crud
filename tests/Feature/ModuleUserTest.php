@@ -25,11 +25,11 @@ class ModuleUserTest extends TestCase
     /** @test*/
     public function list_user_nombre()
     {
-        //arreglar este metodo
-        //$this->withoutExcecptionHandling();
+        
         $this->get('/usuarios/nombre')
         ->assertStatus(200)
         ->assertSee('usuario crear');
+
     }
 
 }
