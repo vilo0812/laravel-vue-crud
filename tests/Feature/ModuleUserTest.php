@@ -13,8 +13,8 @@ class ModuleUserTest extends TestCase
      */
     public function testExample()
     {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
+        $this->get('usuarios')
+        ->assertStatus(200)
+        ->assertSee('usuarios');
     }
 }
