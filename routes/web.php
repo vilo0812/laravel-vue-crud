@@ -4,10 +4,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/usuarios', function(){
- return "eres un usuario";
+ return "usuarios";
 });
 Route::get('/usuarios/{id}',function($id){
-    return "eres un usuario y tu id es:  $id";
+    return "eres un usuario y tu id es:$id";
 })->where('id','[0-9]+');
 Route::get('usuarios/nombre',function(){
 return "usuario crear";
