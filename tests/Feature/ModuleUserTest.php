@@ -13,7 +13,7 @@ class ModuleUserTest extends TestCase
     {
         $this->get('/usuarios')
         ->assertStatus(200)
-        ->assertSee('usuarios');
+        ->assertSee('listado de usuarios');
     }
     /** @test*/
     public function list_user_detail()
