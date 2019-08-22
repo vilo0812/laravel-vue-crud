@@ -64,14 +64,13 @@
         </style>
     </head>
     <body>
-    <h1>{{$title}}</h1>
-    <hr>
-        <ul>
-            @forelse ($users as $user)
-                    <li>{{$user}} </li>
-            @empty
-                    <li>no hay usuarios registrados</li>
-            @endforelse
-        </ul>
+    <h1>usuario crear</h1>
+    @unless(empty($users))
+        @foreach($users as $user)
+        {{$user}}
+        @endforeach
+    @else
+        <p>usuario vacio</p>
+    @endunless
     </body>
 </html>

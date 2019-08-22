@@ -13,5 +13,6 @@ class WelcomeUserController extends Controller
     }else{
     return "eres el usuario $nombre";
     }
+
     }
 }

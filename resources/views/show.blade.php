@@ -64,14 +64,29 @@
         </style>
     </head>
     <body>
-    <h1>{{$title}}</h1>
-    <hr>
-        <ul>
-            @forelse ($users as $user)
-                    <li>{{$user}} </li>
-            @empty
-                    <li>no hay usuarios registrados</li>
-            @endforelse
-        </ul>
+    @forelse($users as $user)
+            @if($user=='gabriel')
+            <h1>{{$frontendVue}} {{$user}}</h1>
+            @else
+            <h1>no eres un usuario</h1>
+            @endif
+            @if($user=='ramon')
+            <h1>{{$backendLaravel}} {{$user}}</h1>
+            @else
+            <h1>no eres un usuario</h1>
+            @endif
+            @if($user=='jesus')
+            <h1>{{$frontendReact}} {{$user}}</h1>
+            @else
+            <h1>no eres un usuario</h1>
+            @endif
+            @if($user=='gean')
+            <h1>{{$backendLaravel}} {{$user}}</h1>
+            @else
+            <h1>no eres un usuario</h1>
+            @endif
+        @empty
+        <h1>no eres un usuario</h1>
+    @endforelse
     </body>
 </html>
