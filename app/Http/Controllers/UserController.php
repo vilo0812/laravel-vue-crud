@@ -37,10 +37,11 @@ class UserController extends Controller
                 'gean'
             ];
         }
+        $id=$id;
         $frontendVue='bienvenido desarrollador de Vue';
         $frontendReact='bienvenido desarrollador de React';
         $backendLaravel='bienvenido desarrollador de Laravel';
-        return view("show",compact('users','frontendVue','frontendReact','backendLaravel'));
+        return view("show",compact('users','frontendVue','frontendReact','backendLaravel','id'));
     }
     public function create(){
         if(request()->has('empty')){

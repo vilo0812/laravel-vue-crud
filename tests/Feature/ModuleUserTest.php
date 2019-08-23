@@ -43,7 +43,6 @@ class ModuleUserTest extends TestCase
     {
         $this->get('/usuarios/2')
         ->assertStatus(200)
-        ->assertSee('bienvenido desarrollador de Vue gabriel')
         ->assertSee('bienvenido desarrollador de Laravel ramon');
     }
     /** @test*/
@@ -51,9 +50,14 @@ class ModuleUserTest extends TestCase
     {
         $this->get('/usuarios/3')
         ->assertStatus(200)
-        ->assertSee('bienvenido desarrollador de Vue gabriel')
-        ->assertSee('bienvenido desarrollador de Laravel ramon')
         ->assertSee('bienvenido desarrollador de React jesus');
+    }
+    /** @test*/
+    public function show_user_by_id_3_isnot_gabriel_or_ramon_or_jesus_is_gean()
+    {
+        $this->get('/usuarios/4')
+        ->assertStatus(200)
+        ->assertSee('bienvenido desarrollador de Laravel gean');
     }
     /** @test*/
     public function list_create_user_nombre()
@@ -65,14 +69,6 @@ class ModuleUserTest extends TestCase
         ->assertSee('jesus')
         ->assertSee('ramon')
         ->assertSee('gean');
-    }
-    /** @test*/
-    public function list_create_user_nombre_empty()
-    {
-        $this->get('/usuarios/nombre?empty')
-        ->assertStatus(200)
-        ->assertSee('usuario vacio');
-
     }
 
 }
