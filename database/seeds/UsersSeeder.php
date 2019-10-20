@@ -14,7 +14,7 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        //$profesiones=DB::select('SELECT id from professions WHERE title = "Desarrollador back-end"');
+        //$profesionas=DB::select('SELECT id from professions WHERE title = "Desarrollador back-end"');
         //$profesiones=DB::select('SELECT id from professions WHERE title = ?',['Desarrollador back-end']);
 
         /*$profesion=DB::table('professions')
@@ -25,11 +25,20 @@ class UsersSeeder extends Seeder
         ->where('title' , 'Desarrollador back-end')
         ->value('id');*/
 
-        User::create([
-          'name' => 'Gabriel Viloria',
+        factory(User::class)->create([
+          'name'=>'Joel'
+        ]);
+
+        $id = Profession::whereTitle('Desarrollador back-end')->value('id');
+        factory(User::class)->create([
+          'name' => 'Gabriel',
           'email' => 'gabriel.viloria0812@gmail.com',
           'password' => bcrypt('laravel'),
-          'profession_id' => Profession::whereTitle('Desarrollador back-end')->value('id')
+          'profession_id' => $id
         ]);
+        factory(User::class)->create([
+          'profession_id' => $id
+        ]);
+        factory(User::class,40)->create();
     }
 }

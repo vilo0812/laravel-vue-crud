@@ -1,33 +1,45 @@
 <?php
 
-namespace App\Http\Controllers;
 
+namespace App\Http\Controllers;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
     public function index(){
-        if(request()->has('empty')){
+        //verificamos si esta vacio el request
+        /*if(request()->has('empty')){
             $users=[];
+        }
         }else{
             $users= [
                 'Joel','gabriel','Timmy','Davinson','Katiana','Diana'
             ];
-        }
-        $title = 'listado de usuarios';
-
+        }*/
+         //otro metodo de concadenacion
         /*return view("users",[
             'users' => $users,
             'title' => 'listado de usuarios'
         ]
     );*/
+    //otro metodo de concadenacion
     /*return view("users")
          ->with('users',$users)
          ->with('title','listado de usuarios'); */
-         return view("users", compact('users','title'));
+
+         $users = User::all();
+
+         // dd($users);
+         return $users;
+         //return view("users", compact('users'));
+
+         //return response()->view('error.404',[],404);
     }
-    public function show($id){
-        if(request()->has('empty')){
+    public function show(User $user){
+        return $user;
+/*        if(request()->has('empty')){
             $users=[];
         }else{
             $users=[
@@ -53,7 +65,9 @@ class UserController extends Controller
                 'ramon',
                 'gean'
             ];
-        }
-        return view("create",compact("users"));
+        }*/
+        //$users = User::find($id);
+        //return $users;
+        //return view("create",compact("users"));
     }
 }

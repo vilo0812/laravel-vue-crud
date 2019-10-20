@@ -64,11 +64,12 @@
         </style>
     </head>
     <body>
-    <h1>{{$title}}</h1>
+    <div id="app"></div>
+    <h1>Hola que hace</h1>
     <hr>
         <ul>
             @forelse ($users as $user)
-                    <li>{{$user}} </li>
+                    <li>{{$user->name}} , {{$user->email}} </li>
             @empty
                     <li>no hay usuarios registrados</li>
             @endforelse
